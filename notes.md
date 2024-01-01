@@ -25,5 +25,15 @@ openssl x509 -in <cert_file> -inform PEM -out <new_der_cert> -outform DER
 ## More stuff
 
 ```
-mkdir ssl_certs && cd ssl_certs && openssl req -x509 -newkey rsa:4096 -keyout server.key -out server.crt -days 365 -sha256 -nodes --subj '/CN=localhost/' && cd -
+mkdir certs && cd certs && openssl req -x509 -newkey rsa:4096 -keyout server.key -out server.crt -days 365 -sha256 -nodes --subj '/CN=localhost/' && cd -
+```
+
+without the mkdir
+
+```bash
+cd certs &&
+openssl req -x509 -newkey rsa:4096 -keyout server.key -out server.crt -days 365 -sha256 -nodes --subj '/CN=localhost/' &&
+openssl rsa -in server.key -out server.key.der -outform DER &&
+openssl x509 -in server.crt -out server.crt.der -outform DER &&
+cd -;
 ```

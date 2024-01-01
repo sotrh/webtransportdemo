@@ -38,8 +38,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .with(tracing_tree::HierarchicalLayer::new(4).with_bracketed_fields(true))
         .init();
 
-    let cert = "certs/certificate.der";
-    let key = "certs/certificate.key.der";
+    let cert = "certs/server.crt.der";
+    let key = "certs/server.key.der";
 
     // create quinn server endpoint and bind UDP socket
 
