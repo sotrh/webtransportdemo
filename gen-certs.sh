@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
+mkdir -p certs;
 cd certs;
 
 HOST="localhost";
